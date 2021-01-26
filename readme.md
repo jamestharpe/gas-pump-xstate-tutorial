@@ -41,6 +41,8 @@ export const linear = Machine({
 
 On save, the XState inspection window will refresh to show the four states you just defined. The "prepayment" state will be highlighted because it is defined as the "initial" state.
 
+Make sure to save your work so that it shows up!
+
 #### 3. Define transitions between states
 
 To get from one state to another, we define transition events by adding "on" to each state, then specifying an event name and target state in the format `EVENT_NAME: "targetState"`:
@@ -74,13 +76,15 @@ export const linear = Machine({
 });
 ```
 
+Make sure to save your work so that it shows up!
+
 #### 4. Try it!
 
-Congrats! You just built a simple UI based on a business defined workflow! Note that the XState inspection window will update interactively as you move through the flow. Try it out!
+Congrats! You just built a simple UI based on a business defined workflow! Note that the application UI (on the right of the Code Sandbox) the XState inspection window will update interactively as you move through the flow. Try it out!
 
-#### 5. Experiment
+#### 5. Experiment (Optional)
 
-Try to add a "BACK" event that will take the user to the previous step of the workflow.
+Try to add a "BACK" event to each state that will take the user to the previous step of the workflow. Can you figure out how to do it? (hint: Add more events)
 
 ### B. Dynamic Gas Station Workflow
 
@@ -94,7 +98,7 @@ export const dynamic = Machine({
 });
 ```
 
-Copy and paste the Linear Gas Station Workflow configuration as a starting point, remove all the transitions, and change the ID to "dynamic":
+We'll start with the linear workflow that you've already defined. Copy and paste the Linear Gas Station Workflow configuration as a starting point, remove all the transitions, and change the ID to "dynamic":
 
 ```typescript
 export const dynamic = Machine({
