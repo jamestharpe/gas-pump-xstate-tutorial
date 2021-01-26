@@ -43,7 +43,7 @@ On save, the XState inspection window will refresh to show the four states you j
 
 #### 3. Define transitions between states
 
-To get from one state to another, we define transition events:
+To get from one state to another, we define transition events by adding "on" to each state, then specifying an event name and target state in the format `EVENT_NAME: "targetState"`:
 
 ```typescript
 export const linear = Machine({
