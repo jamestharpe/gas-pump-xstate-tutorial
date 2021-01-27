@@ -1,5 +1,7 @@
 # Learn to define Statecharts!
 
+To get started, open this project at <https://codesandbox.io/s/gas-pump-xstate-tutorial-7t4xz>
+
 ## Challenges
 
 ### A. Linear Gas Station Workflow
@@ -139,11 +141,11 @@ export const dynamic = Machine({
 });
 ```
 
-When you save, the XState Inspector should show dited lines around the `prepayment` and `grade` states, indicating that they can be run in parallel.
+When you save (`Ctrl+S`), the XState Inspector should show doted lines around the `prepayment` and `grade` states, indicating that they can be run in parallel.
 
 #### 3. Add "done" states to `prepayment` and `grade`
 
-For the `prerequisites` state to be completed, all child states must be `"final"`. To do this, further nest each parallel state to distinguish between `needed` and `done` - be sure to set the initial state for each. Mark the `done` state as `type: "final"`:
+For the `prerequisites` state to be completed, all child states must be in a state marked `"final"`. To do this, further nest each parallel state to distinguish between `needed` and `done` (a prepayment is either "needed" or "done", a grade selection is either "needed" or "done") - be sure to set the initial state for each as "needed". Mark the `done` state as `type: "final"`:
 
 ```typescript
 export const dynamic = Machine({
@@ -187,6 +189,8 @@ Add the following transitions:
 
 - Add a `PAY` event to transition the `prepayment` state from `needed` to `done`
 - Add a `SELECT_GRADE` event to transition the `prepayment` state from `needed` to `done`
+
+Because the `done` state is `type:"final"` this indicates that the step is complete - when all child states are in a `type:"final"` state, the parent state is also completed.
 
 When completed this, your code should look as follows:
 
@@ -282,6 +286,8 @@ export const dynamic = Machine({
 ```
 
 This tells our state machine that when all of the prerequisites are completed, automatically transition to the "pump" state.
+
+(Note: You may notice that the `onDone` transition can technically be triggered without the `prerequisite` child states - this can be prevented with "guards" but guards are beyond the scope)
 
 #### 5. Add the final transitions
 
