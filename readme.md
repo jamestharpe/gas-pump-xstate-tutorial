@@ -1,6 +1,14 @@
 # Learn to define Statecharts!
 
-To get started, open this project at <https://codesandbox.io/s/gas-pump-xstate-tutorial-7t4xz>
+To get started, open this project at <https://codesandbox.io/s/gas-pump-xstate-tutorial-7t4xz>. Follow the instructions in this readme to learn to define statecharts (a.k.a. workflows) step-by-step.
+
+This tutorial convers how to define statecharts control how users flow through an application (in this case, a gas station). A dynamic UI is provided "out of the box" - coding skills are not required!
+
+## Tips
+
+- Move the XState Inspector _tab_ to a new _window_ to prevent it from taking focus when you save
+- Save your work (`Ctrl`+`S`) as you go!
+- The preview frame sometimes needs to be refreshed - use the in-frame refresh button rather than your browser's refresh button.
 
 ## Challenges
 

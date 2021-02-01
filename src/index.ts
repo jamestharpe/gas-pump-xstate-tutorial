@@ -9,9 +9,11 @@ inspect({
   iframe: false
 });
 
-const workflow = interpret(dynamic, { devTools: true });
+const workflow = interpret(linear, { devTools: true });
 
+//
 // Coders only beyond this point!
+//
 
 (window as any).workflow = workflow;
 
@@ -20,17 +22,23 @@ function render() {
   <section>
     <h1>The Atlas Gas Station</h1>
     <div>
-    ${(window as any).workflow.state.nextEvents
-      .filter(
-        (e: string) =>
-          !e.startsWith("done.") && !e.startsWith("error.") && !e.endsWith("ED")
-      )
-      .reduce(
-        (prev: string, cur: string) =>
-          `${prev}
+    ${
+      ((window as any).workflow.state &&
+        (window as any).workflow.state.nextEvents
+          .filter(
+            (e: string) =>
+              !e.startsWith("done.") &&
+              !e.startsWith("error.") &&
+              !e.endsWith("ED")
+          )
+          .reduce(
+            (prev: string, cur: string) =>
+              `${prev}
           <button onclick="window.workflow.send('${cur}')">${cur}!</button>`,
-        ""
-      )}
+            ""
+          )) ||
+      ""
+    }
     </div>
     <!--
     <p>
@@ -43,11 +51,13 @@ function render() {
   `;
 }
 
-workflow
-  .onTransition((state, event) => {
-    console.log(`superService.onTransition`, state, event);
-    render();
-  })
-  .start();
+workflow.onTransition((state, event) => {
+  console.log(`superService.onTransition`, state, event);
+  render();
+});
+
+if (workflow.machine.initial) {
+  workflow.start();
+}
 
 render();
