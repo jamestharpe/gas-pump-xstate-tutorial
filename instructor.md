@@ -22,6 +22,7 @@ During the sessions:
 - Round-robin drop-ins for each team, about 5 minutes each
 - If things are going well: Ask them to explain _how it works_
 - If things are going poorly: Ask leading questions, but try not to give answers
+- Record any feedback
 
 As teams return, **write down each team's feedback**. Here are some questions to ask:
 
