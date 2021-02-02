@@ -98,9 +98,11 @@ Try to add a "BACK" event to each state that will take the user to the previous 
 
 ### B. Dynamic Gas Station Workflow
 
+A "dynamic" workflow is one where the user can choose the path they take from one state to another, without violating the defined business rules. In the case of our gas station example, that can mean deciding to choose a grade first or to make the prepayment first. However, the user should not be able to pump gas unless a prepayment is made AND a grade is selected are done.
+
 #### 1. Get started
 
-Open `workflow-dynamic.ts` and you should see code that looks like this:
+Change the word `linear` to `dynamic` on line 12 of `index.ts`. Next, open `workflow-dynamic.ts` and you should see code that looks like this:
 
 ```typescript
 export const dynamic = Machine({
