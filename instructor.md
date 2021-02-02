@@ -1,4 +1,4 @@
-# Instructinos for Instructing
+# Instructions for Instructing
 
 - Intro:
   - What is a finite state machine?
