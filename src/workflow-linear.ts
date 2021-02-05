@@ -1,5 +1,12 @@
 import { Machine } from "xstate";
 
 export const linear = Machine({
-  // Put your code here
+  id: "linear",
+  initial: "prepayment",
+  states: {
+    prepayment: {},
+    grade: {},
+    pump: {},
+    done: {}
+  }
 });

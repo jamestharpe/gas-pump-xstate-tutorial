@@ -26,10 +26,7 @@ function render() {
       ((window as any).workflow.state &&
         (window as any).workflow.state.nextEvents
           .filter(
-            (e: string) =>
-              !e.startsWith("done.") &&
-              !e.startsWith("error.") &&
-              !e.endsWith("ED")
+            (e: string) => !e.startsWith("done.") && !e.startsWith("error.")
           )
           .reduce(
             (prev: string, cur: string) =>
@@ -37,7 +34,7 @@ function render() {
           <button onclick="window.workflow.send('${cur}')">${cur}!</button>`,
             ""
           )) ||
-      ""
+      "(no workflow actions available)"
     }
     </div>
     <!--
